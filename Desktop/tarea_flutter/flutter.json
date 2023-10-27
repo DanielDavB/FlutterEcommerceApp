@@ -1,0 +1,43 @@
+{
+    "upperbody":{
+        "001":{
+            "name":"ADIDAS HOODIE WINTER GRAY",
+            "price":"1379 MXN",
+            "pic":"https://www.laces.mx/cdn/shop/products/HK5020_3_APPAREL_OnModel_StandardView_white.jpg?v=1671050185&width=1200",
+            "description":"ADIDAS HOODIE WINTER GRAY"
+        },
+        "002":{
+            "name":"ANTI SOCIAL SOCIAL CLUB (ASSC) CLUB TOKYO LONG TEE",
+            "price":"4,200 MXN",
+            "pic":"https://images.stockx.com/images/Anti-Social-Social-Club-Tokyo-Logo-Tee-White-Red.jpg?fit=fill&bg=FFFFFF&w=480&h=320&fm=jpg&auto=compress&dpr=2&trim=color&updated_at=1637610410&q=60",
+            "description":"SHIRT DESIGNED BY ASSC"
+        },
+        "003":{
+            "name":"LONG T JORDAN GFX",
+            "price":"600 MXN",
+            "pic":"https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQqohQCDclNy1S10lgopQcnNzqjCZS12h_UKLsZTny5L4Ss_zaN0fs1wckMD8tWWyqF0zZP_CZX30Y-q9rJM6eyRRNI50te-J-Ru2n1XMA3&usqp=CAE",
+            "description":"LONG TEE DESIGNED BY JORDAN"
+        },
+        "004":{
+            "name":"PSYCHO BUNNY MEN'S CLASSIC CREW NECK TEE",
+            "price":"1,000 MXN",
+            "pic":"https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQrG0To3GCqa3Y1uXiZFjnCFzqrWpb1R9dfh40RLKmdxz9Qi7KX3GuCrXdLAG6A-kFx6obfuoh7tVz10wzR8fi0lh9vkMr5ZntX42I5KrM&usqp=CAE",
+            "description":"T-SHIRT CREATED BY PSYCHO BUNNY FOR MEN ONLY"
+        }
+    },
+    "shoes":{
+        "101":{
+            "name":"JORDAN 4 UNC",
+            "price":"10,000 MXN",
+            "pic":"https://drop-shop.mx/cdn/shop/files/image_53ef5158-c08c-4f64-9098-fe246938c9b5_1200x1200.png?v=1682993236",
+            "decription":"SHOES WITH THE CLASSICAL UNC COLOR WAY JORDAN 4"
+        },
+        "102":{
+            "name":"NIKE DUNK WHY SO SAD?",
+            "price":"6,000 MXN",
+            "pic":"https://static.nike.com/a/images/t_prod_ss/w_960,c_limit,f_auto/84fe38bd-7c5f-4696-b036-4c59cd399069/fecha-de-lanzamiento-del-sb-dunk-low-why-so-sad-dx5549-400.jpg",
+            "decription":"SHOES CREATED BY NIKE MADE IN SUADE WITH GOOD MATERIALS EXCLUSIVE"
+        }
+    }
+    
+}
