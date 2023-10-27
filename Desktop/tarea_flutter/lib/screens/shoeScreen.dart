@@ -37,7 +37,7 @@ class ProductSingle extends StatelessWidget {
 
   Image fullscreenImage() {
     return Image.asset(
-      'assets/sneaker.jpg', // Adjust the path as needed
+      'assets/sneaker.png', // Adjust the path as needed
       fit: BoxFit.cover,
     );
   }
