@@ -15,7 +15,8 @@ class _ProductSingleState extends State<ProductSingle> {
 
   void changeImage(String imagePath) {
     setState(() {
-      _currentImage = Image.asset(imagePath);
+      _currentImage =
+          Image.asset(imagePath, fit: BoxFit.cover); //images when you click
     });
   }
 
@@ -210,27 +211,69 @@ class _ProductSingleState extends State<ProductSingle> {
   }
 }
 
-class CircleWidget extends StatelessWidget {
+class CircleWidget extends StatefulWidget {
   final Color color;
   final Function onTap;
 
   CircleWidget(this.color, this.onTap);
 
   @override
+  _CircleWidgetState createState() => _CircleWidgetState();
+}
+
+class _CircleWidgetState extends State<CircleWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 200),
+    );
+    _animation = Tween<double>(begin: 1, end: 0.8).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        onTap();
+      onTapDown: (_) {
+        _controller.forward();
       },
-      child: Container(
-        width: 30,
-        height: 30,
-        margin: const EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: color,
-        ),
+      onTapUp: (_) {
+        _controller.reverse();
+        widget.onTap();
+      },
+      onTapCancel: () {
+        _controller.reverse();
+      },
+      child: AnimatedBuilder(
+        animation: _animation,
+        builder: (context, child) {
+          return Transform.scale(
+            scale: _animation.value,
+            child: Container(
+              width: 30,
+              height: 30,
+              margin: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: widget.color,
+              ),
+            ),
+          );
+        },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
