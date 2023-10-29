@@ -2,8 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tarea_flutter/widgets/navbar.dart';
 
-class ProductSingle extends StatelessWidget {
+class ProductSingle extends StatefulWidget {
   const ProductSingle({Key? key}) : super(key: key);
+
+  @override
+  _ProductSingleState createState() => _ProductSingleState();
+}
+
+class _ProductSingleState extends State<ProductSingle> {
+  Image _currentImage =
+      Image.asset('assets/sneaker.png', fit: BoxFit.cover); // Initial image
+
+  void changeImage(String imagePath) {
+    setState(() {
+      _currentImage = Image.asset(imagePath);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,24 +43,21 @@ class ProductSingle extends StatelessWidget {
         children: [
           buildFullscreenContainer(context),
           TwoSectionContainer(),
-          BlackButton(), // Add the black button
+          BlackButton(),
         ],
       ),
     );
   }
 
   Image fullscreenImage() {
-    return Image.asset(
-      'assets/sneaker.png', // Adjust the path as needed
-      fit: BoxFit.cover,
-    );
+    return _currentImage;
   }
 
   Container buildFullscreenContainer(BuildContext context) {
     return Container(
       height: 300,
       width: MediaQuery.of(context).size.width,
-      color: Colors.blue,
+      color: const Color.fromARGB(255, 255, 255, 255),
       child: fullscreenImage(),
     );
   }
@@ -56,12 +67,11 @@ class ProductSingle extends StatelessWidget {
       width: 30,
       child: Column(
         children: [
-          // First vertical section with ListWheelScrollView
           Expanded(
             child: Align(
-              alignment: Alignment(0, 0), // Center the child vertically
+              alignment: Alignment(0, 0),
               child: ListWheelScrollView(
-                itemExtent: 50, // Adjust this value as needed
+                itemExtent: 50,
                 useMagnifier: true,
                 magnification: 1.3,
                 children: List<Widget>.generate(50, (index) {
@@ -75,9 +85,8 @@ class ProductSingle extends StatelessWidget {
               ),
             ),
           ),
-          // Second vertical section
           Expanded(
-            flex: 1, // Adjust the flex value to make it larger
+            flex: 1,
             child: Container(),
           ),
         ],
@@ -107,16 +116,21 @@ class ProductSingle extends StatelessWidget {
                             fontStyle: FontStyle.italic),
                       ),
                     ),
-                    CircleWidget(Colors.black),
-                    CircleWidget(const Color.fromARGB(255, 197, 162, 59)),
-                    CircleWidget(Colors.black),
+                    CircleWidget(Colors.black, () {
+                      changeImage('assets/sneaker.png');
+                    }),
+                    CircleWidget(const Color.fromARGB(255, 197, 162, 59), () {
+                      changeImage('assets/sample.jpg');
+                    }),
+                    CircleWidget(Colors.black, () {
+                      changeImage('assets/sample2.jpg');
+                    }),
                   ],
                 ),
               ),
             ],
           ),
-          const SizedBox(
-              height: 20), // Add space between the color section and size text
+          const SizedBox(height: 20),
           const Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 20.0,
@@ -143,7 +157,7 @@ class ProductSingle extends StatelessWidget {
           const Expanded(
             child: Center(
               child: Padding(
-                padding: EdgeInsets.all(20.0), // Add padding to the text
+                padding: EdgeInsets.all(20.0),
                 child: SingleChildScrollView(
                   child: Text(
                     "The SprintFlex X1 running shoes are a perfect blend of style, comfort, and performance. These shoes are meticulously designed for the modern athlete who demands the best in both fashion and functionality.",
@@ -163,7 +177,6 @@ class ProductSingle extends StatelessWidget {
     );
   }
 
-  // ignore: non_constant_identifier_names
   Widget TwoSectionContainer() {
     return Expanded(
       child: Row(
@@ -175,15 +188,14 @@ class ProductSingle extends StatelessWidget {
     );
   }
 
-  // ignore: non_constant_identifier_names
   Widget BlackButton() {
     return Container(
-      width: double.infinity, // Takes the full width of the screen
-      height: 50, // Set the height to 20
-      margin: const EdgeInsets.all(10.0), // Add margin
+      width: double.infinity,
+      height: 50,
+      margin: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        color: Colors.black, // Black background color
-        borderRadius: BorderRadius.circular(10.0), // Add border radius
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(10.0),
       ),
       child: const Center(
         child: Text(
@@ -200,18 +212,24 @@ class ProductSingle extends StatelessWidget {
 
 class CircleWidget extends StatelessWidget {
   final Color color;
+  final Function onTap;
 
-  CircleWidget(this.color);
+  CircleWidget(this.color, this.onTap);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 30, // Adjust the size of the circles as needed
-      height: 30,
-      margin: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color,
+    return GestureDetector(
+      onTap: () {
+        onTap();
+      },
+      child: Container(
+        width: 30,
+        height: 30,
+        margin: const EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: color,
+        ),
       ),
     );
   }

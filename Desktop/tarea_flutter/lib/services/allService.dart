@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:tarea_flutter/models/productsmodel.dart';
-// import 'package:tarea_flutter/models/upperbody.dart';
 import 'package:http/http.dart' as http;
 
 class ShoesService extends ChangeNotifier {
@@ -20,22 +19,15 @@ class ShoesService extends ChangeNotifier {
     notifyListeners();
 
     final url = Uri.https(_baseUrl, 'shoes.json');
-    // final url2 = Uri.https(_baseUrl, 'upperbody.json');
     final resp = await http.get(url);
-    // final resp2 = await http.get(url2);
 
     final Map<String, dynamic> shoesMap = json.decode(resp.body);
-    // final Map<String, dynamic> upperbodyMap = json.decode(resp2.body);
 
     shoesMap.forEach((key, value) {
       final shu = Shoe.fromMap(value);
       this.allData.add(shu);
     });
 
-    // upperbodyMap.forEach((key, value) {
-    //   final upper = Upperbody.fromMap(value);
-    //   this.allData.add(upper);
-    // });
     this.isLoading = false;
     notifyListeners();
 
