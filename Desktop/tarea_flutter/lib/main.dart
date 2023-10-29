@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tarea_flutter/screens/main_screen.dart';
-import 'package:tarea_flutter/screens/shoeScreen.dart';
-import 'package:tarea_flutter/screens/shop_screen.dart';
+import 'package:tarea_flutter/screens/singleProduct.dart';
+import 'package:tarea_flutter/screens/products.dart';
 import 'package:tarea_flutter/services/allService.dart';
 
 void main() {
