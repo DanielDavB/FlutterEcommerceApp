@@ -123,7 +123,7 @@ class _ProductSingleState extends State<ProductSingle> {
                     CircleWidget(const Color.fromARGB(255, 197, 162, 59), () {
                       changeImage('assets/sample.jpg');
                     }),
-                    CircleWidget(Colors.black, () {
+                    CircleWidget(const Color.fromARGB(255, 255, 0, 0), () {
                       changeImage('assets/sample2.jpg');
                     }),
                   ],
@@ -178,6 +178,7 @@ class _ProductSingleState extends State<ProductSingle> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget TwoSectionContainer() {
     return Expanded(
       child: Row(
