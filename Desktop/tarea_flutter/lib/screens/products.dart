@@ -9,7 +9,7 @@ class ShopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shoesService = Provider.of<ShoesService>(context);
+    final productsService = Provider.of<ProductsService>(context);
 
     return Scaffold(
       appBar: CustomAppBar(
@@ -18,7 +18,7 @@ class ShopScreen extends StatelessWidget {
           Navigator.of(context).pushNamed('main');
         },
         onPressed2: () {
-          Navigator.of(context).pushNamed('shoe');
+          Navigator.of(context).pushNamed('product');
         },
         onNotificationsPressed: () {},
         iconLeft: const Icon(Icons.arrow_back, color: Colors.black),
@@ -31,10 +31,10 @@ class ShopScreen extends StatelessWidget {
           mainAxisSpacing: 3.0,
           childAspectRatio: 0.5, // Adjust this value for a 200px height
         ),
-        itemCount: shoesService.allData.length,
+        itemCount: productsService.allData.length,
         itemBuilder: (context, index) {
           return CustomCard(
-            allData: shoesService.allData[index],
+            allData: productsService.allData[index],
           );
         },
       ),

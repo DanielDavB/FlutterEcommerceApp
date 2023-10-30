@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tarea_flutter/widgets/navbar.dart';
 
 class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +13,7 @@ class MainScreen extends StatelessWidget {
             Navigator.of(context).pushNamed('shop');
           },
           onPressed2: () {
-            Navigator.of(context).pushNamed('shoe');
+            Navigator.of(context).pushNamed('product');
           },
           onNotificationsPressed: () {},
           iconLeft: const Icon(

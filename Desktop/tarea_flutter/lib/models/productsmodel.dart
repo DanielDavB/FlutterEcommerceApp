@@ -1,34 +1,34 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-class Shoe {
+class Product {
   String name;
   String price;
   String pic;
-  String? decription;
+  String? description;
 
-  Shoe({
+  Product({
     required this.name,
     required this.price,
     required this.pic,
-    this.decription,
+    this.description,
   });
 
-  factory Shoe.fromJson(String str) => Shoe.fromMap(json.decode(str));
+  factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
 
   String toRawJson() => json.encode(toMap());
 
-  factory Shoe.fromMap(Map<String, dynamic> json) => Shoe(
+  factory Product.fromMap(Map<String, dynamic> json) => Product(
         name: json["name"],
         price: json["price"],
         pic: json["pic"],
-        decription: json["decription"],
+        description: json["description"],
       );
 
   Map<String, dynamic> toMap() => {
         "name": name,
         "price": price,
         "pic": pic,
-        "decription": decription,
+        "description": description,
       };
 }

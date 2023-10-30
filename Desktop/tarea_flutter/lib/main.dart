@@ -13,7 +13,7 @@ class AppState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => ShoesService())],
+      providers: [ChangeNotifierProvider(create: (_) => ProductsService())],
       child: const MainApp(),
     );
   }
@@ -27,11 +27,11 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Routing system app",
-      initialRoute: "shoe",
+      initialRoute: "product",
       routes: {
-        "main": (_) => MainScreen(),
+        "main": (_) => const MainScreen(),
         "shop": (_) => const ShopScreen(),
-        "shoe": (_) => const ProductSingle()
+        "product": (_) => const ProductSingle() //
       },
     );
   }
